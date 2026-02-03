@@ -25,7 +25,10 @@ import Props from './Props'
 
 // const isLoggedIn = true;
 
-const fruits = ['Apple','Banana','Orange']
+// const fruits = ['Apple','Banana','Orange']
+const handleClick=()=>{
+  alert('Clicked');
+}
 
 function App() {
   return (
@@ -42,11 +45,12 @@ function App() {
       {/* <h1>
         {isLoggedIn ? 'Dashboard': 'Login'}
       </h1> */}
-      <ul>
+      {/* <ul>
         {fruits.map(fruit=>(
           <li key={fruit}>{fruit}</li>
         ))}
-      </ul>
+      </ul> */}
+      <button onClick={handleClick}>Click here</button>
     </>
 
   )
