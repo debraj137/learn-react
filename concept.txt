@@ -1,0 +1,3 @@
+What is state?
+State = data that changes over time
+Examples:counter value, form input, login status
