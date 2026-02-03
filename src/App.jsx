@@ -14,14 +14,16 @@ import Props from './Props'
 //   return <h1>Footer</h1>
 // }
 
-function Card(){
-  return (
-    <>
-    <h2>Title</h2>
-    <p>Description</p>
-    </>
-  )
-}
+// function Card(){
+//   return (
+//     <>
+//     <h2>Title</h2>
+//     <p>Description</p>
+//     </>
+//   )
+// }
+
+const isLoggedIn = true;
 
 function App() {
   return (
@@ -34,7 +36,10 @@ function App() {
       <Props name='props example'/> */}
       {/* <Header/>
       <Footer/> */}
-      <Card/>
+      {/* <Card/> */}
+      <h1>
+        {isLoggedIn ? 'Dashboard': 'Login'}
+      </h1>
     </>
 
   )
