@@ -6,15 +6,25 @@ import FunctionalComponentExample from './FunctionalComponentExample'
 import JSXRules from './JSXRules'
 import Props from './Props'
 
+function Header(){
+  return <h1>Header</h1>
+}
+
+function Footer(){
+  return <h1>Footer</h1>
+}
+
 function App() {
   return (
     <>
-      <h1>Hello react</h1>
+      {/* <h1>Hello react</h1>
       <p>Hello world</p>
       <p>{2+2}</p>
       <FunctionalComponentExample/>
       <JSXRules/>
-      <Props name='props example'/>
+      <Props name='props example'/> */}
+      <Header/>
+      <Footer/>
     </>
 
   )
