@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import FunctionalComponentExample from './FunctionalComponentExample'
+import JSXRules from './JSXRules'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <p>Hello world</p>
       <p>{2+2}</p>
       <FunctionalComponentExample/>
+      <JSXRules/>
     </>
 
   )
