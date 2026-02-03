@@ -35,6 +35,7 @@ import ModuleCssExample from './modulecss/ModuleCssExample'
 
 function App() {
   const [count, setCount] = useState(0);
+  const [name, setName] = useState('');
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -58,8 +59,10 @@ function App() {
       {/* <div className='box'>Hello</div> */}
       {/* <div style={{color:'red',fontSize:'20px'}}>Hello</div> */}
       {/* <ModuleCssExample/> */}
-      <p>{count}</p>
-      <button onClick={()=>setCount(count+1)}>Increase count by 1</button>
+      {/* <p>{count}</p>
+      <button onClick={()=>setCount(count+1)}>Increase count by 1</button> */}
+      <input value={name} onChange={e=>setName(e.target.value)}/>
+      <input defaultValue='dev'/>
     </>
 
   )
