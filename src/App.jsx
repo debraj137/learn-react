@@ -23,7 +23,9 @@ import Props from './Props'
 //   )
 // }
 
-const isLoggedIn = true;
+// const isLoggedIn = true;
+
+const fruits = ['Apple','Banana','Orange']
 
 function App() {
   return (
@@ -37,9 +39,14 @@ function App() {
       {/* <Header/>
       <Footer/> */}
       {/* <Card/> */}
-      <h1>
+      {/* <h1>
         {isLoggedIn ? 'Dashboard': 'Login'}
-      </h1>
+      </h1> */}
+      <ul>
+        {fruits.map(fruit=>(
+          <li key={fruit}>{fruit}</li>
+        ))}
+      </ul>
     </>
 
   )
