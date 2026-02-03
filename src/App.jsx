@@ -30,7 +30,9 @@ import ModuleCssExample from './modulecss/ModuleCssExample'
 // const handleClick=()=>{
 //   alert('Clicked');
 // }
-
+function Child(){
+  console.log('Child rendered')
+}
 
 
 function App() {
@@ -66,8 +68,9 @@ function App() {
       {/* <input value={name} onChange={e=>setName(e.target.value)}/>
       <input defaultValue='dev'/> */}
       {/* <button onClick={()=>{setCount(count+1)}}>Increment</button> */}
-      <h1>Static Text</h1>
-      <button onClick={()=>setCount(count)}>Click(no state change)</button>
+      <h1>{count}</h1>
+      <button onClick={()=>setCount(count + 1)}>Increment</button>
+      <Child/>
     </>
 
   )
