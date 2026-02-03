@@ -65,7 +65,9 @@ function App() {
       <button onClick={()=>setCount(count+1)}>Increase count by 1</button> */}
       {/* <input value={name} onChange={e=>setName(e.target.value)}/>
       <input defaultValue='dev'/> */}
-      <button onClick={()=>{setCount(count+1)}}>Increment</button>
+      {/* <button onClick={()=>{setCount(count+1)}}>Increment</button> */}
+      <h1>Static Text</h1>
+      <button onClick={()=>setCount(count)}>Click(no state change)</button>
     </>
 
   )
