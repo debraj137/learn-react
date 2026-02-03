@@ -6,12 +6,21 @@ import FunctionalComponentExample from './FunctionalComponentExample'
 import JSXRules from './JSXRules'
 import Props from './Props'
 
-function Header(){
-  return <h1>Header</h1>
-}
+// function Header(){
+//   return <h1>Header</h1>
+// }
 
-function Footer(){
-  return <h1>Footer</h1>
+// function Footer(){
+//   return <h1>Footer</h1>
+// }
+
+function Card(){
+  return (
+    <>
+    <h2>Title</h2>
+    <p>Description</p>
+    </>
+  )
 }
 
 function App() {
@@ -23,8 +32,9 @@ function App() {
       <FunctionalComponentExample/>
       <JSXRules/>
       <Props name='props example'/> */}
-      <Header/>
-      <Footer/>
+      {/* <Header/>
+      <Footer/> */}
+      <Card/>
     </>
 
   )
