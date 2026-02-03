@@ -30,9 +30,9 @@ import ModuleCssExample from './modulecss/ModuleCssExample'
 // const handleClick=()=>{
 //   alert('Clicked');
 // }
-function Child({value}){
+function Child({user}){
   console.log('Child rendered')
-  return <p>Value: {value}</p>
+  return <p>Username: {user.name}</p>
 }
 
 
@@ -40,6 +40,7 @@ function App() {
   // const [count, setCount] = useState(0);
   // const [name, setName] = useState('');
   const [count, setCount] = useState(0);
+  const user = { name: "Debraj" }; // new object every render
   console.log('App rendered');
   return (
     <>
@@ -71,7 +72,7 @@ function App() {
       {/* <button onClick={()=>{setCount(count+1)}}>Increment</button> */}
       <h1>{count}</h1>
       <button onClick={()=>setCount(count + 1)}>Increment</button>
-      <Child value={count}/>
+      <Child user={user}/>
     </>
 
   )
