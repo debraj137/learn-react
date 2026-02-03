@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import FunctionalComponentExample from './FunctionalComponentExample'
 import JSXRules from './JSXRules'
+import Props from './Props'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <p>{2+2}</p>
       <FunctionalComponentExample/>
       <JSXRules/>
+      <Props name='props example'/>
     </>
 
   )
