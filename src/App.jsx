@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { memo, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -30,10 +30,10 @@ import ModuleCssExample from './modulecss/ModuleCssExample'
 // const handleClick=()=>{
 //   alert('Clicked');
 // }
-function Child({user}){
+const Child = memo(function Child(){
   console.log('Child rendered')
-  return <p>Username: {user.name}</p>
-}
+  return <p>I am child</p>
+}) 
 
 
 function App() {
@@ -72,7 +72,7 @@ function App() {
       {/* <button onClick={()=>{setCount(count+1)}}>Increment</button> */}
       <h1>{count}</h1>
       <button onClick={()=>setCount(count + 1)}>Increment</button>
-      <Child user={user}/>
+      <Child/>
     </>
 
   )
