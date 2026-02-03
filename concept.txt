@@ -1,3 +1,12 @@
 What is state?
+---------------------------------------
 State = data that changes over time
 Examples:counter value, form input, login status
+
+Why Components Re-render (INTERVIEW ANSWER)
+-------------------------------------------------
+Correct answer:
+A component re-renders when:
+Its state updates,Its props change (by reference),Its parent re-renders,Context value changes
+📌 NOT because React is slow
+📌 NOT because Virtual DOM is bad
