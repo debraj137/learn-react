@@ -27,11 +27,14 @@ import ModuleCssExample from './modulecss/ModuleCssExample'
 // const isLoggedIn = true;
 
 // const fruits = ['Apple','Banana','Orange']
-const handleClick=()=>{
-  alert('Clicked');
-}
+// const handleClick=()=>{
+//   alert('Clicked');
+// }
+
+
 
 function App() {
+  const [count, setCount] = useState(0);
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -54,7 +57,9 @@ function App() {
       {/* <button onClick={handleClick}>Click here</button> */}
       {/* <div className='box'>Hello</div> */}
       {/* <div style={{color:'red',fontSize:'20px'}}>Hello</div> */}
-      <ModuleCssExample/>
+      {/* <ModuleCssExample/> */}
+      <p>{count}</p>
+      <button onClick={()=>setCount(count+1)}>Increase count by 1</button>
     </>
 
   )
