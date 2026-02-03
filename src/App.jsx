@@ -5,6 +5,7 @@ import './App.css'
 import FunctionalComponentExample from './FunctionalComponentExample'
 import JSXRules from './JSXRules'
 import Props from './Props'
+import ModuleCssExample from './modulecss/ModuleCssExample'
 
 // function Header(){
 //   return <h1>Header</h1>
@@ -50,7 +51,10 @@ function App() {
           <li key={fruit}>{fruit}</li>
         ))}
       </ul> */}
-      <button onClick={handleClick}>Click here</button>
+      {/* <button onClick={handleClick}>Click here</button> */}
+      {/* <div className='box'>Hello</div> */}
+      {/* <div style={{color:'red',fontSize:'20px'}}>Hello</div> */}
+      <ModuleCssExample/>
     </>
 
   )
