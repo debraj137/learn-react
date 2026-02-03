@@ -30,8 +30,9 @@ import ModuleCssExample from './modulecss/ModuleCssExample'
 // const handleClick=()=>{
 //   alert('Clicked');
 // }
-function Child(){
+function Child({value}){
   console.log('Child rendered')
+  return <p>Value: {value}</p>
 }
 
 
@@ -70,7 +71,7 @@ function App() {
       {/* <button onClick={()=>{setCount(count+1)}}>Increment</button> */}
       <h1>{count}</h1>
       <button onClick={()=>setCount(count + 1)}>Increment</button>
-      <Child/>
+      <Child value={count}/>
     </>
 
   )
