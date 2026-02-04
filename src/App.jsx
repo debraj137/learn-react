@@ -106,7 +106,13 @@ function App() {
   //   };
   // }, []);
 
-  const [name, setName] = useState('');
+  // const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+
+  function handleSubmit(e){
+    e.preventDefault();
+    console.log('email: ',email);
+  }
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -153,8 +159,12 @@ function App() {
         ))}
       </ul> */}
       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
-      <input type='text' value={name} onChange={e=>setName(e.target.value)} placeholder="Enter name"/>
-      <p>You typed: {name}</p>
+      {/* <input type='text' value={name} onChange={e=>setName(e.target.value)} placeholder="Enter name"/>
+      <p>You typed: {name}</p> */}
+      <form onSubmit={handleSubmit}>
+        <input type='email' value={email} onChange={e=>setEmail(e.target.value)}/>
+        <button type='submit'>Submit</button>
+      </form>
     </>
 
   )
