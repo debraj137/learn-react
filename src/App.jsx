@@ -60,10 +60,34 @@ function App() {
   //     clearInterval()
   //   }
   // },[])
+  // const [users, setUsers] = useState([]);
+  // useEffect(()=>{
+  //   fetch("https://jsonplaceholder.typicode.com/users").then(res=>res.json()).then(data=>setUsers(data))
+  // },[])
   const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   useEffect(()=>{
-    fetch("https://jsonplaceholder.typicode.com/users").then(res=>res.json()).then(data=>setUsers(data))
-  },[])
+    const fetchUser = async()=>{
+      try {
+        const res = await fetch("https://jsonplaceholder.typicode.com/users");
+        if(!res.ok) throw new Error('Failed to fetch');
+        const data = await res.json();
+        console.log('data: ',data)
+        setUsers(data);
+      } catch (error) {
+        setError(error.message)
+      }
+      finally{
+        setLoading(false);
+      }
+    }
+    fetchUser();
+  },[]);
+
+  if(loading) return <p>Loading...</p>
+  if(error) return <p>Error: {error}</p>
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -99,6 +123,11 @@ function App() {
       {/* <h1>{count}</h1>
       <button onClick={()=>setCount(count+1)}>Increment</button> */}
       {/* <h1>Cleanup function in useEffect: check console</h1> */}
+      {/* <ul>
+        {users.map(user=>(
+          <li key={user.id}>{user.name}</li>
+        ))}
+      </ul> */}
       <ul>
         {users.map(user=>(
           <li key={user.id}>{user.name}</li>
