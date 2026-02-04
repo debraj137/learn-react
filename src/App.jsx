@@ -45,11 +45,21 @@ function App() {
   // useEffect(()=>{
   //   console.log('useEffect ran')
   // })
-  const [count, setCount] = useState(0);
-  console.log('App render');
+  // const [count, setCount] = useState(0);
+  // console.log('App render');
+  // useEffect(()=>{
+  //   console.log('Effect run: count=',count)
+  // },[count])
   useEffect(()=>{
-    console.log('Effect run: count=',count)
-  },[count])
+    const timer= setInterval(()=>{
+      console.log('Running...')
+    },1000)
+
+    return ()=>{
+      console.log('cleanup');
+      clearInterval();
+    }
+  },[])
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -82,8 +92,9 @@ function App() {
       <button onClick={()=>setCount(count + 1)}>Increment</button>
       <Child/> */}
       {/* <h1>useEffect example, check console</h1> */}
-      <h1>{count}</h1>
-      <button onClick={()=>setCount(count+1)}>Increment</button>
+      {/* <h1>{count}</h1>
+      <button onClick={()=>setCount(count+1)}>Increment</button> */}
+      <h1>Cleanup function in useEffect: check console</h1>
     </>
 
   )
