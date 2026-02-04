@@ -88,23 +88,25 @@ function App() {
 
   // if(loading) return <p>Loading...</p>
   // if(error) return <p>Error: {error}</p>
-  const [data, setData] = useState(null);
+  // const [data, setData] = useState(null);
 
-  useEffect(() => {
-    let isActive = true;
+  // useEffect(() => {
+  //   let isActive = true;
 
-    fetch("https://jsonplaceholder.typicode.com/posts/1")
-      .then(res => res.json())
-      .then(result => {
-        if (isActive) {
-          setData(result);
-        }
-      });
+  //   fetch("https://jsonplaceholder.typicode.com/posts/1")
+  //     .then(res => res.json())
+  //     .then(result => {
+  //       if (isActive) {
+  //         setData(result);
+  //       }
+  //     });
 
-    return () => {
-      isActive = false;
-    };
-  }, []);
+  //   return () => {
+  //     isActive = false;
+  //   };
+  // }, []);
+
+  const [name, setName] = useState('');
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -150,7 +152,9 @@ function App() {
           <li key={user.id}>{user.name}</li>
         ))}
       </ul> */}
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
+      <input type='text' value={name} onChange={e=>setName(e.target.value)} placeholder="Enter name"/>
+      <p>You typed: {name}</p>
     </>
 
   )
