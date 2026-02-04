@@ -1,4 +1,4 @@
-import { memo, useState } from 'react'
+import { memo, useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -39,9 +39,12 @@ const Child = memo(function Child(){
 function App() {
   // const [count, setCount] = useState(0);
   // const [name, setName] = useState('');
-  const [count, setCount] = useState(0);
-  const user = { name: "Debraj" }; // new object every render
+  // const [count, setCount] = useState(0);
+  // const user = { name: "Debraj" }; // new object every render
   console.log('App rendered');
+  useEffect(()=>{
+    console.log('useEffect ran')
+  })
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -70,9 +73,10 @@ function App() {
       {/* <input value={name} onChange={e=>setName(e.target.value)}/>
       <input defaultValue='dev'/> */}
       {/* <button onClick={()=>{setCount(count+1)}}>Increment</button> */}
-      <h1>{count}</h1>
+      {/* <h1>{count}</h1>
       <button onClick={()=>setCount(count + 1)}>Increment</button>
-      <Child/>
+      <Child/> */}
+      <h1>useEffect example, check console</h1>
     </>
 
   )
