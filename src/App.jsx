@@ -30,10 +30,10 @@ import ModuleCssExample from './modulecss/ModuleCssExample'
 // const handleClick=()=>{
 //   alert('Clicked');
 // }
-const Child = memo(function Child(){
+const Child = memo(function Child() {
   console.log('Child rendered')
   return <p>I am child</p>
-}) 
+})
 
 
 function App() {
@@ -64,30 +64,47 @@ function App() {
   // useEffect(()=>{
   //   fetch("https://jsonplaceholder.typicode.com/users").then(res=>res.json()).then(data=>setUsers(data))
   // },[])
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  // const [users, setUsers] = useState([]);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState(null);
 
-  useEffect(()=>{
-    const fetchUser = async()=>{
-      try {
-        const res = await fetch("https://jsonplaceholder.typicode.com/users");
-        if(!res.ok) throw new Error('Failed to fetch');
-        const data = await res.json();
-        console.log('data: ',data)
-        setUsers(data);
-      } catch (error) {
-        setError(error.message)
-      }
-      finally{
-        setLoading(false);
-      }
-    }
-    fetchUser();
-  },[]);
+  // useEffect(()=>{
+  //   const fetchUser = async()=>{
+  //     try {
+  //       const res = await fetch("https://jsonplaceholder.typicode.com/users");
+  //       if(!res.ok) throw new Error('Failed to fetch');
+  //       const data = await res.json();
+  //       console.log('data: ',data)
+  //       setUsers(data);
+  //     } catch (error) {
+  //       setError(error.message)
+  //     }
+  //     finally{
+  //       setLoading(false);
+  //     }
+  //   }
+  //   fetchUser();
+  // },[]);
 
-  if(loading) return <p>Loading...</p>
-  if(error) return <p>Error: {error}</p>
+  // if(loading) return <p>Loading...</p>
+  // if(error) return <p>Error: {error}</p>
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    let isActive = true;
+
+    fetch("https://jsonplaceholder.typicode.com/posts/1")
+      .then(res => res.json())
+      .then(result => {
+        if (isActive) {
+          setData(result);
+        }
+      });
+
+    return () => {
+      isActive = false;
+    };
+  }, []);
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -128,11 +145,12 @@ function App() {
           <li key={user.id}>{user.name}</li>
         ))}
       </ul> */}
-      <ul>
+      {/* <ul>
         {users.map(user=>(
           <li key={user.id}>{user.name}</li>
         ))}
-      </ul>
+      </ul> */}
+      <pre>{JSON.stringify(data, null, 2)}</pre>
     </>
 
   )
