@@ -50,15 +50,19 @@ function App() {
   // useEffect(()=>{
   //   console.log('Effect run: count=',count)
   // },[count])
-  useEffect(()=>{
-    const timer= setInterval(()=>{
-      console.log('Running...')
-    },1000)
+  // useEffect(()=>{
+  //   const timer= setInterval(()=>{
+  //     console.log('Running...')
+  //   },1000)
 
-    return ()=>{
-      console.log('cleanup');
-      clearInterval()
-    }
+  //   return ()=>{
+  //     console.log('cleanup');
+  //     clearInterval()
+  //   }
+  // },[])
+  const [users, setUsers] = useState([]);
+  useEffect(()=>{
+    fetch("https://jsonplaceholder.typicode.com/users").then(res=>res.json()).then(data=>setUsers(data))
   },[])
   return (
     <>
@@ -94,7 +98,12 @@ function App() {
       {/* <h1>useEffect example, check console</h1> */}
       {/* <h1>{count}</h1>
       <button onClick={()=>setCount(count+1)}>Increment</button> */}
-      <h1>Cleanup function in useEffect: check console</h1>
+      {/* <h1>Cleanup function in useEffect: check console</h1> */}
+      <ul>
+        {users.map(user=>(
+          <li key={user.id}>{user.name}</li>
+        ))}
+      </ul>
     </>
 
   )
