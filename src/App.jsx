@@ -57,7 +57,7 @@ function App() {
 
     return ()=>{
       console.log('cleanup');
-      clearInterval();
+      clearInterval()
     }
   },[])
   return (
