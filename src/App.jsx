@@ -107,11 +107,22 @@ function App() {
   // }, []);
 
   // const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  // const [email, setEmail] = useState('');
 
-  function handleSubmit(e){
+  // function handleSubmit(e){
+  //   e.preventDefault();
+  //   console.log('email: ',email);
+  // }
+  const [email, setEmail]=useState('');
+  const [error, setError]=useState('');
+  const handleSubmit=(e)=>{
     e.preventDefault();
-    console.log('email: ',email);
+    if(!email.includes('@')){
+      setError('Invalid email');
+      return;
+    } 
+    setError('');
+    console.log('email submitted: ',email);
   }
   return (
     <>
@@ -161,9 +172,14 @@ function App() {
       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
       {/* <input type='text' value={name} onChange={e=>setName(e.target.value)} placeholder="Enter name"/>
       <p>You typed: {name}</p> */}
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <input type='email' value={email} onChange={e=>setEmail(e.target.value)}/>
         <button type='submit'>Submit</button>
+      </form> */}
+      <form onSubmit={handleSubmit}>
+        <input value={email} onChange={e=>setEmail(e.target.value)}/>
+        <button>Submit</button>
+        {error && <p style={{color:'red'}}>Error: {error}</p>}
       </form>
     </>
 
