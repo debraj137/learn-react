@@ -30,10 +30,15 @@ import ModuleCssExample from './modulecss/ModuleCssExample'
 // const handleClick=()=>{
 //   alert('Clicked');
 // }
-const Child = memo(function Child() {
-  console.log('Child rendered')
-  return <p>I am child</p>
-})
+// const Child = memo(function Child() {
+//   console.log('Child rendered')
+//   return <p>I am child</p>
+// })
+
+const fields=[
+  {name:'name', placeholder: 'Enter name'},
+  {name: 'password', placeholder: 'Enter password'}
+]
 
 
 function App() {
@@ -113,16 +118,27 @@ function App() {
   //   e.preventDefault();
   //   console.log('email: ',email);
   // }
-  const [email, setEmail]=useState('');
-  const [error, setError]=useState('');
-  const handleSubmit=(e)=>{
-    e.preventDefault();
-    if(!email.includes('@')){
-      setError('Invalid email');
-      return;
-    } 
-    setError('');
-    console.log('email submitted: ',email);
+  // const [email, setEmail]=useState('');
+  // const [error, setError]=useState('');
+  // const handleSubmit=(e)=>{
+  //   e.preventDefault();
+  //   if(!email.includes('@')){
+  //     setError('Invalid email');
+  //     return;
+  //   } 
+  //   setError('');
+  //   console.log('email submitted: ',email);
+  // }
+
+  const [form, setForm] = useState({});
+
+  const handleChange=(e)=>{
+    setForm(
+      {
+        ...form,
+        [e.target.name]: e.target.value
+      }
+    )
   }
   return (
     <>
@@ -176,10 +192,16 @@ function App() {
         <input type='email' value={email} onChange={e=>setEmail(e.target.value)}/>
         <button type='submit'>Submit</button>
       </form> */}
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <input value={email} onChange={e=>setEmail(e.target.value)}/>
         <button>Submit</button>
         {error && <p style={{color:'red'}}>Error: {error}</p>}
+      </form> */}
+      <form>
+        {fields.map(field=>(
+          <input key={field.name} name={field.name} placeholder={field.placeholder} onChange={handleChange}/>
+        ))}
+        <pre>{JSON.stringify(form, null, 2)}</pre>
       </form>
     </>
 
