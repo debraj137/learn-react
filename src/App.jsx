@@ -40,12 +40,12 @@ import { useForm } from 'react-hook-form'
 //   {name:'name', placeholder: 'Enter name'},
 //   {name: 'password', placeholder: 'Enter password'}
 // ]
-const ThemeContext = createContext();
+// const ThemeContext = createContext();
 
-function Child(){
-  const [theme] = useContext(ThemeContext);
-  return <p>Theme: {theme}</p>
-}
+// function Child(){
+//   const [theme] = useContext(ThemeContext);
+//   return <p>Theme: {theme}</p>
+// }
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -169,7 +169,10 @@ function App() {
   // }
   
   // const [state, dispatch] = useReducer(reducer, initialState)
-  const theme = useState('dark');
+  // const theme = useState('dark');
+  const renders = useRef(0);
+  const [count, setCount] = useState(0);
+  renders.current++
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -247,9 +250,14 @@ function App() {
         <button onClick={()=>dispatch({type: 'increment'})}>+</button>
         <button onClick={()=>dispatch({type: 'decrement'})}>-</button>
       </div> */}
-      <ThemeContext.Provider value={theme}>
+      {/* <ThemeContext.Provider value={theme}>
         <Child/>
-      </ThemeContext.Provider>
+      </ThemeContext.Provider> */}
+      <div>
+        <h1>Count: {count}</h1>
+        <h1>Renders: {renders.current}</h1>
+        <button onClick={()=>setCount(count+1)}>+</button>
+      </div>
     </>
 
   )
