@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from 'react'
+import { memo, useEffect, useRef, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -35,10 +35,10 @@ import ModuleCssExample from './modulecss/ModuleCssExample'
 //   return <p>I am child</p>
 // })
 
-const fields=[
-  {name:'name', placeholder: 'Enter name'},
-  {name: 'password', placeholder: 'Enter password'}
-]
+// const fields=[
+//   {name:'name', placeholder: 'Enter name'},
+//   {name: 'password', placeholder: 'Enter password'}
+// ]
 
 
 function App() {
@@ -130,15 +130,21 @@ function App() {
   //   console.log('email submitted: ',email);
   // }
 
-  const [form, setForm] = useState({});
+  // const [form, setForm] = useState({});
 
-  const handleChange=(e)=>{
-    setForm(
-      {
-        ...form,
-        [e.target.name]: e.target.value
-      }
-    )
+  // const handleChange=(e)=>{
+  //   setForm(
+  //     {
+  //       ...form,
+  //       [e.target.name]: e.target.value
+  //     }
+  //   )
+  // }
+
+  const inputRef = useRef();
+
+  const focusInput = ()=>{
+    return inputRef.current.focus();
   }
   return (
     <>
@@ -197,12 +203,16 @@ function App() {
         <button>Submit</button>
         {error && <p style={{color:'red'}}>Error: {error}</p>}
       </form> */}
-      <form>
+      {/* <form>
         {fields.map(field=>(
           <input key={field.name} name={field.name} placeholder={field.placeholder} onChange={handleChange}/>
         ))}
         <pre>{JSON.stringify(form, null, 2)}</pre>
-      </form>
+      </form> */}
+      <div>
+        <input type="text" ref={inputRef} placeholder='Click button to focus'/>
+        <button onClick={focusInput}>Focus</button>
+      </div>
     </>
 
   )
