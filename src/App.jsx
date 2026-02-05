@@ -1,4 +1,4 @@
-import { createContext, memo, useContext, useEffect, useReducer, useRef, useState } from 'react'
+import { createContext, memo, useContext, useEffect, useMemo, useReducer, useRef, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -170,9 +170,17 @@ function App() {
   
   // const [state, dispatch] = useReducer(reducer, initialState)
   // const theme = useState('dark');
-  const renders = useRef(0);
+  // const renders = useRef(0);
+  // const [count, setCount] = useState(0);
+  // renders.current++
   const [count, setCount] = useState(0);
-  renders.current++
+  const [dark, setDark] = useState(false);
+
+  const expensiveValue = useMemo(()=>{
+    console.log('Calculating...');
+    return count*1000;
+  },[count])
+
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -253,10 +261,15 @@ function App() {
       {/* <ThemeContext.Provider value={theme}>
         <Child/>
       </ThemeContext.Provider> */}
-      <div>
+      {/* <div>
         <h1>Count: {count}</h1>
         <h1>Renders: {renders.current}</h1>
         <button onClick={()=>setCount(count+1)}>+</button>
+      </div> */}
+      <div style={{background: dark ? "#333": "#fff"}}>
+        <p>{expensiveValue}</p>
+        <button onClick={()=>setCount(count+1)}>Count</button>
+        <button onClick={()=>setDark(!dark)}>Toggle Theme</button>
       </div>
     </>
 
