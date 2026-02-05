@@ -23,3 +23,14 @@ API Best Practices (INTERVIEW ANSWER)
 📌 Interview-ready sentence:
 -----------------------------------------------------------------
 “I use useEffect for side effects like data fetching, manage loading and error states, and clean up effects to avoid memory leaks or race conditions.”
+
+LESSON 7: Form Performance Optimization (INTERVIEW TOPIC)
+--------------------------------------------------------------------
+Problem:Controlled inputs re-render on every keystroke.
+
+Solutions: ✔ Use useRef when needed, ✔ Use React Hook Form, ✔ Avoid unnecessary state
+✔ Split big forms into components
+
+📌 Interview line:
+--------------------------------------------------
+“For large forms, I prefer React Hook Form because it minimizes re-renders and improves performance.”
