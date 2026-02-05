@@ -34,3 +34,11 @@ Solutions: ✔ Use useRef when needed, ✔ Use React Hook Form, ✔ Avoid unnece
 📌 Interview line:
 --------------------------------------------------
 “For large forms, I prefer React Hook Form because it minimizes re-renders and improves performance.”
+
+🧩 LESSON 8: Rules of Hooks (MUST MEMORIZE)
+-------------------------------------------------------------------
+❌ Don’t call hooks:inside loops,inside conditions,inside nested functions
+
+✅ Call hooks:at top level,inside React components,inside custom hooks
+
+📌 Rule:Hooks must run in the same order every render.
