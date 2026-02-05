@@ -1,4 +1,4 @@
-import { memo, useEffect, useReducer, useRef, useState } from 'react'
+import { createContext, memo, useContext, useEffect, useReducer, useRef, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -40,7 +40,12 @@ import { useForm } from 'react-hook-form'
 //   {name:'name', placeholder: 'Enter name'},
 //   {name: 'password', placeholder: 'Enter password'}
 // ]
+const ThemeContext = createContext();
 
+function Child(){
+  const [theme] = useContext(ThemeContext);
+  return <p>Theme: {theme}</p>
+}
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -153,17 +158,18 @@ function App() {
   //   console.log(data);
   // }
 
-  const initialState = {count: 0}
+  // const initialState = {count: 0}
 
-  function reducer(state,action){
-    switch(action.type){
-      case 'increment': return {count: state.count+1};
-      case 'decrement': return {count: state.count-1};
-      default: return state;
-    }
-  }
+  // function reducer(state,action){
+  //   switch(action.type){
+  //     case 'increment': return {count: state.count+1};
+  //     case 'decrement': return {count: state.count-1};
+  //     default: return state;
+  //   }
+  // }
   
-  const [state, dispatch] = useReducer(reducer, initialState)
+  // const [state, dispatch] = useReducer(reducer, initialState)
+  const theme = useState('dark');
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -236,11 +242,14 @@ function App() {
         <input {...register('password')} placeholder='Enter Password'/>
         <button>Submit</button>
       </form> */}
-      <div>
+      {/* <div>
         <p>Count: {state.count}</p>
         <button onClick={()=>dispatch({type: 'increment'})}>+</button>
         <button onClick={()=>dispatch({type: 'decrement'})}>-</button>
-      </div>
+      </div> */}
+      <ThemeContext.Provider value={theme}>
+        <Child/>
+      </ThemeContext.Provider>
     </>
 
   )
