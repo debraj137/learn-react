@@ -199,9 +199,9 @@ function App() {
   // },[]);
 
   // const [count, setCount] = useState(0);
-  const data = useFetch(
-    "https://jsonplaceholder.typicode.com/posts/1"
-  );
+  // const data = useFetch(
+  //   "https://jsonplaceholder.typicode.com/posts/1"
+  // );
 
 
   return (
@@ -303,7 +303,7 @@ function App() {
         <button onClick={() => setCount(count + 1)}>+</button>
         <Child />
       </div> */}
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
     </>
 
   )
