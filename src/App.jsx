@@ -6,6 +6,7 @@ import FunctionalComponentExample from './FunctionalComponentExample'
 import JSXRules from './JSXRules'
 import Props from './Props'
 import ModuleCssExample from './modulecss/ModuleCssExample'
+import { useForm } from 'react-hook-form'
 
 // function Header(){
 //   return <h1>Header</h1>
@@ -141,10 +142,15 @@ function App() {
   //   )
   // }
 
-  const inputRef = useRef();
+  // const inputRef = useRef();
 
-  const focusInput = ()=>{
-    return inputRef.current.focus();
+  // const focusInput = ()=>{
+  //   return inputRef.current.focus();
+  // }
+
+  const {register, handleSubmit}= useForm();
+  const onSubmit = (data)=>{
+    console.log(data);
   }
   return (
     <>
@@ -209,10 +215,15 @@ function App() {
         ))}
         <pre>{JSON.stringify(form, null, 2)}</pre>
       </form> */}
-      <div>
+      {/* <div>
         <input type="text" ref={inputRef} placeholder='Click button to focus'/>
         <button onClick={focusInput}>Focus</button>
-      </div>
+      </div> */}
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input {...register('email')} placeholder='Enter Email'/>
+        <input {...register('password')} placeholder='Enter Password'/>
+        <button>Submit</button>
+      </form>
     </>
 
   )
