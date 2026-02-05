@@ -47,10 +47,15 @@ import { useForm } from 'react-hook-form'
 //   return <p>Theme: {theme}</p>
 // }
 
-function Child({onClick}){
+// function Child({ onClick }) {
+//   console.log("Child rendered");
+//   return <button onClick={onClick}>Child Buttons</button>;
+// }
+
+const Child = memo(function Child() {
   console.log("Child rendered");
-  return <button onClick={onClick}>Child Buttons</button>;
-}
+  return <p>Child</p>;
+});
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -172,7 +177,7 @@ function App() {
   //     default: return state;
   //   }
   // }
-  
+
   // const [state, dispatch] = useReducer(reducer, initialState)
   // const theme = useState('dark');
   // const renders = useRef(0);
@@ -186,11 +191,13 @@ function App() {
   //   return count*1000;
   // },[count]);
 
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
 
-  const handleClick = useCallback(()=>{
-    console.log('useCallback Clicked');
-  },[]);
+  // const handleClick = useCallback(()=>{
+  //   console.log('useCallback Clicked');
+  // },[]);
+
+  const [count, setCount] = useState(0);
 
   return (
     <>
@@ -282,9 +289,14 @@ function App() {
         <button onClick={()=>setCount(count+1)}>Count</button>
         <button onClick={()=>setDark(!dark)}>Toggle Theme</button>
       </div> */}
-      <div>
+      {/* <div>
         <button onClick={()=>setCount(count+1)}>+</button>
         <Child onClick={handleClick}/>
+      </div> */}
+      <div>
+        <p>Count: {count}</p>
+        <button onClick={() => setCount(count + 1)}>+</button>
+        <Child />
       </div>
     </>
 
