@@ -7,6 +7,7 @@ import JSXRules from './JSXRules'
 import Props from './Props'
 import ModuleCssExample from './modulecss/ModuleCssExample'
 import { useForm } from 'react-hook-form'
+import { useFetch } from './useFetch'
 
 // function Header(){
 //   return <h1>Header</h1>
@@ -52,10 +53,10 @@ import { useForm } from 'react-hook-form'
 //   return <button onClick={onClick}>Child Buttons</button>;
 // }
 
-const Child = memo(function Child() {
-  console.log("Child rendered");
-  return <p>Child</p>;
-});
+// const Child = memo(function Child() {
+//   console.log("Child rendered");
+//   return <p>Child</p>;
+// });
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -197,7 +198,11 @@ function App() {
   //   console.log('useCallback Clicked');
   // },[]);
 
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
+  const data = useFetch(
+    "https://jsonplaceholder.typicode.com/posts/1"
+  );
+
 
   return (
     <>
@@ -293,11 +298,12 @@ function App() {
         <button onClick={()=>setCount(count+1)}>+</button>
         <Child onClick={handleClick}/>
       </div> */}
-      <div>
+      {/* <div>
         <p>Count: {count}</p>
         <button onClick={() => setCount(count + 1)}>+</button>
         <Child />
-      </div>
+      </div> */}
+      <pre>{JSON.stringify(data, null, 2)}</pre>
     </>
 
   )
