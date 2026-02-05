@@ -1,4 +1,4 @@
-import { createContext, memo, useContext, useEffect, useMemo, useReducer, useRef, useState } from 'react'
+import { createContext, memo, useCallback, useContext, useEffect, useMemo, useReducer, useRef, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -46,6 +46,11 @@ import { useForm } from 'react-hook-form'
 //   const [theme] = useContext(ThemeContext);
 //   return <p>Theme: {theme}</p>
 // }
+
+function Child({onClick}){
+  console.log("Child rendered");
+  return <button onClick={onClick}>Child Buttons</button>;
+}
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -173,13 +178,19 @@ function App() {
   // const renders = useRef(0);
   // const [count, setCount] = useState(0);
   // renders.current++
-  const [count, setCount] = useState(0);
-  const [dark, setDark] = useState(false);
+  // const [count, setCount] = useState(0);
+  // const [dark, setDark] = useState(false);
 
-  const expensiveValue = useMemo(()=>{
-    console.log('Calculating...');
-    return count*1000;
-  },[count])
+  // const expensiveValue = useMemo(()=>{
+  //   console.log('Calculating...');
+  //   return count*1000;
+  // },[count]);
+
+  const [count, setCount] = useState(0);
+
+  const handleClick = useCallback(()=>{
+    console.log('useCallback Clicked');
+  },[]);
 
   return (
     <>
@@ -266,10 +277,14 @@ function App() {
         <h1>Renders: {renders.current}</h1>
         <button onClick={()=>setCount(count+1)}>+</button>
       </div> */}
-      <div style={{background: dark ? "#333": "#fff"}}>
+      {/* <div style={{background: dark ? "#333": "#fff"}}>
         <p>{expensiveValue}</p>
         <button onClick={()=>setCount(count+1)}>Count</button>
         <button onClick={()=>setDark(!dark)}>Toggle Theme</button>
+      </div> */}
+      <div>
+        <button onClick={()=>setCount(count+1)}>+</button>
+        <Child onClick={handleClick}/>
       </div>
     </>
 
