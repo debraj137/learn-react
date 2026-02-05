@@ -1,4 +1,4 @@
-import { memo, useEffect, useRef, useState } from 'react'
+import { memo, useEffect, useReducer, useRef, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -148,10 +148,22 @@ function App() {
   //   return inputRef.current.focus();
   // }
 
-  const {register, handleSubmit}= useForm();
-  const onSubmit = (data)=>{
-    console.log(data);
+  // const {register, handleSubmit}= useForm();
+  // const onSubmit = (data)=>{
+  //   console.log(data);
+  // }
+
+  const initialState = {count: 0}
+
+  function reducer(state,action){
+    switch(action.type){
+      case 'increment': return {count: state.count+1};
+      case 'decrement': return {count: state.count-1};
+      default: return state;
+    }
   }
+  
+  const [state, dispatch] = useReducer(reducer, initialState)
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -219,11 +231,16 @@ function App() {
         <input type="text" ref={inputRef} placeholder='Click button to focus'/>
         <button onClick={focusInput}>Focus</button>
       </div> */}
-      <form onSubmit={handleSubmit(onSubmit)}>
+      {/* <form onSubmit={handleSubmit(onSubmit)}>
         <input {...register('email')} placeholder='Enter Email'/>
         <input {...register('password')} placeholder='Enter Password'/>
         <button>Submit</button>
-      </form>
+      </form> */}
+      <div>
+        <p>Count: {state.count}</p>
+        <button onClick={()=>dispatch({type: 'increment'})}>+</button>
+        <button onClick={()=>dispatch({type: 'decrement'})}>-</button>
+      </div>
     </>
 
   )
