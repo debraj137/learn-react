@@ -42,3 +42,15 @@ Solutions: ✔ Use useRef when needed, ✔ Use React Hook Form, ✔ Avoid unnece
 ✅ Call hooks:at top level,inside React components,inside custom hooks
 
 📌 Rule:Hooks must run in the same order every render.
+
+🧩 LESSON 9: When NOT to Use Hooks (SENIOR ANSWER)
+--------------------------------------------------------------
+❌ Don’t use hooks:
+just to look smart
+for simple values
+for premature optimization
+
+✔ Use hooks:
+when state exists
+when side effects exist
+when logic is reusable
