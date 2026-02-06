@@ -89,6 +89,10 @@ function About(){
   return <h1>About Page</h1>
 }
 
+function NotFound(){
+  return <h1>404-Page not found</h1>
+}
+
 function App() {
   // const [count, setCount] = useState(0);
   // const [name, setName] = useState('');
@@ -236,12 +240,12 @@ function App() {
 
 
 
-  const routes = useRoutes([
-    {path:'/', element: <Home/>},
-    {path:'/about', element: <About/>}
-  ])
+  // const routes = useRoutes([
+  //   {path:'/', element: <Home/>},
+  //   {path:'/about', element: <About/>}
+  // ])
 
-  return routes;
+  // return routes;
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -359,6 +363,12 @@ function App() {
           <Route path='/about'element={<About/>}>About</Route>
         </Route>
       </Routes> */}
+
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/about' element={<About/>}/>
+        <Route path='*' element={<NotFound/>}/>
+      </Routes>
     </>
 
   )
