@@ -10,6 +10,7 @@ import { useForm } from 'react-hook-form'
 import { useFetch } from './useFetch'
 import { Link, Route, Routes, useLocation, useParams, useRoutes } from 'react-router-dom'
 import Layout from './Layout'
+import { UserContext } from './UserContext'
 
 // function Header(){
 //   return <h1>Header</h1>
@@ -93,8 +94,16 @@ import Layout from './Layout'
 //   return <h1>404-Page not found</h1>
 // }
 
-function Child({count}){
-  return <p>Count in Child: {count}</p>
+// function Child({count}){
+//   return <p>Count in Child: {count}</p>
+// }
+
+function Profile(){
+  return (
+    <UserContext.Consumer>
+      {(user)=><p>User: {user}</p>}
+    </UserContext.Consumer>
+  )
 }
 
 function App() {
@@ -250,7 +259,9 @@ function App() {
   // ])
 
   // return routes;
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
+
+  const user = "Debraj";
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -374,10 +385,13 @@ function App() {
         <Route path='/about' element={<About/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes> */}
-      <div>
+      {/* <div>
         <button onClick={()=>setCount(count+1)}>+</button>
         <Child count={count}/>
-      </div>
+      </div> */}
+      <UserContext.Provider value={user}>
+        <Profile/>
+      </UserContext.Provider>
     </>
 
   )
