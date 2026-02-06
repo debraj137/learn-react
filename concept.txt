@@ -54,3 +54,11 @@ for premature optimization
 when state exists
 when side effects exist
 when logic is reusable
+
+🧩 LESSON 3: Global State Patterns (MENTAL MODEL)
+Types of state
+State type	Example	Tool
+Local	input, toggle	useState
+Shared	filters, tabs	lifting
+Global	auth, theme	Context
+Server	API data	React Query
