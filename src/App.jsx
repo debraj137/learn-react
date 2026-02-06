@@ -8,6 +8,7 @@ import Props from './Props'
 import ModuleCssExample from './modulecss/ModuleCssExample'
 import { useForm } from 'react-hook-form'
 import { useFetch } from './useFetch'
+import { Route, Routes } from 'react-router-dom'
 
 // function Header(){
 //   return <h1>Header</h1>
@@ -57,6 +58,14 @@ import { useFetch } from './useFetch'
 //   console.log("Child rendered");
 //   return <p>Child</p>;
 // });
+
+function HomePage(){
+  return <h1>Home Page</h1>
+}
+
+function AboutPage(){
+  return <h1>About Page</h1>
+}
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -304,6 +313,10 @@ function App() {
         <Child />
       </div> */}
       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
+      <Routes>
+        <Route path='/' element={<HomePage/>}/>
+        <Route path='/about' element={<AboutPage/>}/>
+      </Routes>
     </>
 
   )
