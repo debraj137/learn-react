@@ -8,7 +8,7 @@ import Props from './Props'
 import ModuleCssExample from './modulecss/ModuleCssExample'
 import { useForm } from 'react-hook-form'
 import { useFetch } from './useFetch'
-import { Route, Routes } from 'react-router-dom'
+import { Link, Route, Routes } from 'react-router-dom'
 
 // function Header(){
 //   return <h1>Header</h1>
@@ -313,6 +313,10 @@ function App() {
         <Child />
       </div> */}
       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
+      <nav>
+        <Link to="/">Home</Link> | {" "}
+        <Link to="/about">About</Link>
+      </nav>
       <Routes>
         <Route path='/' element={<HomePage/>}/>
         <Route path='/about' element={<AboutPage/>}/>
