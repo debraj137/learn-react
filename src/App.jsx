@@ -9,6 +9,7 @@ import ModuleCssExample from './modulecss/ModuleCssExample'
 import { useForm } from 'react-hook-form'
 import { useFetch } from './useFetch'
 import { Link, Route, Routes, useLocation, useParams } from 'react-router-dom'
+import Layout from './Layout'
 
 // function Header(){
 //   return <h1>Header</h1>
@@ -67,17 +68,25 @@ import { Link, Route, Routes, useLocation, useParams } from 'react-router-dom'
 //   return <h1>About Page</h1>
 // }
 
-function Info(){
-  const location = useLocation();
-  return <pre>{JSON.stringify(location, null, 2)}</pre>
+// function Info(){
+//   const location = useLocation();
+//   return <pre>{JSON.stringify(location, null, 2)}</pre>
+// }
+
+// function User(){
+//   const {id} = useParams();
+//   return <div>
+//     <h1>User ID: {id}</h1>
+//     <h1>{<Info/>}</h1>
+//   </div> 
+// }
+
+function Home(){
+  return <h1>Home Page</h1>
 }
 
-function User(){
-  const {id} = useParams();
-  return <div>
-    <h1>User ID: {id}</h1>
-    <h1>{<Info/>}</h1>
-  </div> 
+function About(){
+  return <h1>About Page</h1>
 }
 
 function App() {
@@ -334,8 +343,14 @@ function App() {
         <Route path='/' element={<HomePage/>}/>
         <Route path='/about' element={<AboutPage/>}/>
       </Routes> */}
-      <Routes>
+      {/* <Routes>
         <Route path='/users/:id' element={<User/>}/>
+      </Routes> */}
+      <Routes>
+        <Route element={<Layout/>}>
+          <Route path='/' element={<Home/>}>Home</Route>
+          <Route path='/about'element={<About/>}>About</Route>
+        </Route>
       </Routes>
     </>
 
