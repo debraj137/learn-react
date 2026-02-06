@@ -8,7 +8,7 @@ import Props from './Props'
 import ModuleCssExample from './modulecss/ModuleCssExample'
 import { useForm } from 'react-hook-form'
 import { useFetch } from './useFetch'
-import { Link, Route, Routes, useLocation, useParams } from 'react-router-dom'
+import { Link, Route, Routes, useLocation, useParams, useRoutes } from 'react-router-dom'
 import Layout from './Layout'
 
 // function Header(){
@@ -235,6 +235,13 @@ function App() {
   // );
 
 
+
+  const routes = useRoutes([
+    {path:'/', element: <Home/>},
+    {path:'/about', element: <About/>}
+  ])
+
+  return routes;
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -346,12 +353,12 @@ function App() {
       {/* <Routes>
         <Route path='/users/:id' element={<User/>}/>
       </Routes> */}
-      <Routes>
+      {/* <Routes>
         <Route element={<Layout/>}>
           <Route path='/' element={<Home/>}>Home</Route>
           <Route path='/about'element={<About/>}>About</Route>
         </Route>
-      </Routes>
+      </Routes> */}
     </>
 
   )
