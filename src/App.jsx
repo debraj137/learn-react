@@ -81,16 +81,20 @@ import Layout from './Layout'
 //   </div> 
 // }
 
-function Home(){
-  return <h1>Home Page</h1>
-}
+// function Home(){
+//   return <h1>Home Page</h1>
+// }
 
-function About(){
-  return <h1>About Page</h1>
-}
+// function About(){
+//   return <h1>About Page</h1>
+// }
 
-function NotFound(){
-  return <h1>404-Page not found</h1>
+// function NotFound(){
+//   return <h1>404-Page not found</h1>
+// }
+
+function Child({count}){
+  return <p>Count in Child: {count}</p>
 }
 
 function App() {
@@ -246,6 +250,7 @@ function App() {
   // ])
 
   // return routes;
+  const [count, setCount] = useState(0);
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -364,11 +369,15 @@ function App() {
         </Route>
       </Routes> */}
 
-      <Routes>
+      {/* <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/about' element={<About/>}/>
         <Route path='*' element={<NotFound/>}/>
-      </Routes>
+      </Routes> */}
+      <div>
+        <button onClick={()=>setCount(count+1)}>+</button>
+        <Child count={count}/>
+      </div>
     </>
 
   )
