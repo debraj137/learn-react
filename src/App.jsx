@@ -8,7 +8,7 @@ import Props from './Props'
 import ModuleCssExample from './modulecss/ModuleCssExample'
 import { useForm } from 'react-hook-form'
 import { useFetch } from './useFetch'
-import { Link, Route, Routes, useParams } from 'react-router-dom'
+import { Link, Route, Routes, useLocation, useParams } from 'react-router-dom'
 
 // function Header(){
 //   return <h1>Header</h1>
@@ -67,9 +67,17 @@ import { Link, Route, Routes, useParams } from 'react-router-dom'
 //   return <h1>About Page</h1>
 // }
 
+function Info(){
+  const location = useLocation();
+  return <pre>{JSON.stringify(location, null, 2)}</pre>
+}
+
 function User(){
   const {id} = useParams();
-  return <h1>User ID: {id}</h1>
+  return <div>
+    <h1>User ID: {id}</h1>
+    <h1>{<Info/>}</h1>
+  </div> 
 }
 
 function App() {
