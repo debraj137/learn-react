@@ -59,12 +59,16 @@ import { Link, Route, Routes } from 'react-router-dom'
 //   return <p>Child</p>;
 // });
 
-function HomePage(){
-  return <h1>Home Page</h1>
-}
+// function HomePage(){
+//   return <h1>Home Page</h1>
+// }
 
-function AboutPage(){
-  return <h1>About Page</h1>
+// function AboutPage(){
+//   return <h1>About Page</h1>
+// }
+
+function User(){
+  return <h1>User Page</h1>
 }
 
 function App() {
@@ -313,13 +317,16 @@ function App() {
         <Child />
       </div> */}
       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
-      <nav>
+      {/* <nav>
         <Link to="/">Home</Link> | {" "}
         <Link to="/about">About</Link>
       </nav>
       <Routes>
         <Route path='/' element={<HomePage/>}/>
         <Route path='/about' element={<AboutPage/>}/>
+      </Routes> */}
+      <Routes>
+        <Route path='/users/:id' element={<User/>}/>
       </Routes>
     </>
 
