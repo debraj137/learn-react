@@ -11,6 +11,8 @@ import { useFetch } from './useFetch'
 import { Link, Route, Routes, useLocation, useParams, useRoutes } from 'react-router-dom'
 import Layout from './Layout'
 import { UserContext } from './UserContext'
+import { useDispatch, useSelector } from 'react-redux'
+import { increment } from './counterSlice'
 
 // function Header(){
 //   return <h1>Header</h1>
@@ -261,7 +263,9 @@ function App() {
   // return routes;
   // const [count, setCount] = useState(0);
 
-  const user = "Debraj";
+  // const user = "Debraj";
+  const count = useSelector((state)=>state.counter.value);
+  const dispatch = useDispatch();
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -389,9 +393,12 @@ function App() {
         <button onClick={()=>setCount(count+1)}>+</button>
         <Child count={count}/>
       </div> */}
-      <UserContext.Provider value={user}>
+      {/* <UserContext.Provider value={user}>
         <Profile/>
-      </UserContext.Provider>
+      </UserContext.Provider> */}
+      <button onClick={()=>dispatch(increment())}>
+        Count: {count}
+      </button>
     </>
 
   )
