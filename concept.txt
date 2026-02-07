@@ -76,3 +76,25 @@ Server data	                            React Query
 📌 Interview line:
 
 “I choose state tools based on scope and complexity, not preference.”
+
+🧩 LESSON 7: State Normalization Principles
+❌ Bad (nested state)
+users: [
+  { id: 1, posts: [{ id: 10 }, { id: 11 }] }
+]
+
+✅ Good (normalized)
+users: {
+  1: { id: 1, posts: [10, 11] }
+},
+posts: {
+  10: { id: 10 },
+  11: { id: 11 }
+}
+
+
+🧠 Benefits:
+Easier updates
+No duplication
+Better performance
+Used heavily in Redux.
