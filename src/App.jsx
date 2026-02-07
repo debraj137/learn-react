@@ -13,6 +13,8 @@ import Layout from './Layout'
 import { UserContext } from './UserContext'
 import { useDispatch, useSelector } from 'react-redux'
 import { increment } from './counterSlice'
+import { useStore } from './useStore'
+// import { useStore } from 'zustand'
 
 // function Header(){
 //   return <h1>Header</h1>
@@ -264,8 +266,9 @@ function App() {
   // const [count, setCount] = useState(0);
 
   // const user = "Debraj";
-  const count = useSelector((state)=>state.counter.value);
-  const dispatch = useDispatch();
+  // const count = useSelector((state)=>state.counter.value);
+  // const dispatch = useDispatch();
+  const {count, increment}  = useStore();
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -396,9 +399,10 @@ function App() {
       {/* <UserContext.Provider value={user}>
         <Profile/>
       </UserContext.Provider> */}
-      <button onClick={()=>dispatch(increment())}>
+      {/* <button onClick={()=>dispatch(increment())}>
         Count: {count}
-      </button>
+      </button> */}
+      <button onClick={increment}>Count: {count}</button>
     </>
 
   )
