@@ -62,3 +62,17 @@ Local	input, toggle	useState
 Shared	filters, tabs	lifting
 Global	auth, theme	Context
 Server	API data	React Query
+
+🧩 LESSON 6: When to Choose Which (INTERVIEW GOLD)
+Decision table
+Situation	                            Use
+Simple component	                    useState
+Shared sibling state	                Lift state
+Theme / Auth	                        Context
+Large complex app	                    Redux Toolkit
+Small global state	                    Zustand
+Server data	                            React Query
+
+📌 Interview line:
+
+“I choose state tools based on scope and complexity, not preference.”
