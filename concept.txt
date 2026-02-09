@@ -129,3 +129,13 @@ useQuery({ queryKey: ["users"], queryFn: fetchUsers });
 🧠 Key idea:
 ---------------------------------------
 Server state ≠ client state
+
+//////////////////////////////////////////////////////////////////////
+🧩 LESSON 1: What is React Query (TanStack Query)?
+---------------------------------------------------------
+React Query is a server-state manager.
+It: fetches data, caches it, refetches automatically, handles loading & error, avoids duplicate requests
+
+🧠 Mental model:
+--------------------------------------------------------------------------
+“React Query is useEffect + cache + retry + refetch done right”
