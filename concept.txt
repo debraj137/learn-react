@@ -98,3 +98,34 @@ Easier updates
 No duplication
 Better performance
 Used heavily in Redux.
+
+//////////////////////////////////////////////////////
+Client State
+----------------------------------
+State that lives only in the browser
+Examples: form input, modal open/close, theme, selected tab
+👉 Managed with: useState, useReducer, Context, Redux, Zustand
+
+Server State
+--------------------------------------------------
+State that comes from an external server
+Examples: users list, products, bookings, orders, profile data
+
+⚠️ Server state has problems:
+--------------------------------------------
+loading, error, caching, refetching, stale data
+
+👉 React Query exists to solve these problems
+❌ Old way (not ideal)
+useEffect(() => {
+  fetch("/api/users")
+    .then(res => res.json())
+    .then(setUsers);
+}, []);
+
+✅ Modern way
+useQuery({ queryKey: ["users"], queryFn: fetchUsers });
+
+🧠 Key idea:
+---------------------------------------
+Server state ≠ client state
