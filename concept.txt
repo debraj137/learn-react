@@ -232,3 +232,30 @@ Sync with server later
 “Optimistic updates improve UX by updating UI before the server confirms.”
 
 ////////////////////////////////////////////////////////////////////////////////////////
+🧩 LESSON 8: Error & Loading Handling (PRODUCTION)
+---------------------------------------------------------------
+React Query gives: isLoading, isError, error
+
+if (isLoading) return <Spinner />;
+if (isError) return <ErrorBox />;
+
+🧠 No more manual flags.
+
+/////////////////////////////////////////////////////////////////////////////////////////
+🧩 LESSON 9: Caching Strategies (INTERVIEW TOPIC)
+-------------------------------------------------------------
+Key options:
+useQuery({
+  staleTime: 5000,  // data is fresh for 5s
+  cacheTime: 300000 // cache stays for 5 min
+});
+
+
+staleTime → when refetch starts
+cacheTime → when cache is garbage-collected
+
+🧠 Used heavily in real apps.
+
+🎯 INTERVIEW-READY SUMMARY (SAVE THIS)
+-------------------------------------------------------------
+“I treat server state separately from client state. I use React Query to fetch, cache, refetch, and mutate server data. It handles loading and error states automatically, supports background refetching, and enables optimistic updates for better UX.”
