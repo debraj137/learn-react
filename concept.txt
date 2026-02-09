@@ -162,3 +162,28 @@ useQuery({
 “React Query caches data based on query keys.”
 
 /////////////////////////////////////////////////////////////////////////////////////
+🧩 LESSON 5: Background Refetching (MAGIC FEATURE)
+-------------------------------------------------------------------
+React Query keeps data fresh automatically.
+
+By default:
+refetches on window focus
+refetches when network reconnects
+
+🧪 Practice 3: Observe refetch
+Load page
+Switch tab
+Come back
+Network request runs again
+
+🧠 This is free — no code needed.
+
+You can control it:
+---------------------------------------------------------
+useQuery({
+  queryKey: ["users"],
+  queryFn: fetchUsers,
+  refetchOnWindowFocus: false
+});
+
+////////////////////////////////////////////////////////////////////////////
