@@ -118,17 +118,17 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 //   return res.json();
 // }
 
-const addUser = async (user)=>{
-  const res = await fetch(
-    "https://jsonplaceholder.typicode.com/users",
-    {
-      method:'POST',
-      body: JSON.stringify(user),
-      headers: {'Content-Type':'application/json'}
-    }
-  );
-  return res.json();
-}
+// const addUser = async (user)=>{
+//   const res = await fetch(
+//     "https://jsonplaceholder.typicode.com/users",
+//     {
+//       method:'POST',
+//       body: JSON.stringify(user),
+//       headers: {'Content-Type':'application/json'}
+//     }
+//   );
+//   return res.json();
+// }
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -296,13 +296,13 @@ function App() {
   // if(isLoading) return <p>Loading...</p>
   // if(error) return <p>Error Occurred</p>
 
-  const queryClient = useQueryClient();
-  const mutation = useMutation({
-    mutationFn:addUser,
-    onSuccess:()=>{
-      queryClient.invalidateQueries(["users"]);
-    }
-  })
+  // const queryClient = useQueryClient();
+  // const mutation = useMutation({
+  //   mutationFn:addUser,
+  //   onSuccess:()=>{
+  //     queryClient.invalidateQueries(["users"]);
+  //   }
+  // })
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -442,7 +442,7 @@ function App() {
           <li key={user.id}>{user.name}</li>
         ))}
       </ul> */}
-      <button onClick={()=>mutation.mutate({name:"New User"})}>Add User</button>
+      {/* <button onClick={()=>mutation.mutate({name:"New User"})}>Add User</button> */}
     </>
 
   )

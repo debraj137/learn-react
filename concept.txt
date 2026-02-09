@@ -187,3 +187,48 @@ useQuery({
 });
 
 ////////////////////////////////////////////////////////////////////////////
+🧩 LESSON 7: Optimistic Updates (ADVANCED, INTERVIEW GOLD)
+--------------------------------------------------------------
+Problem: Waiting for server response feels slow ❌
+
+Solution: Update UI before server responds.
+
+🧪 Practice 5: Optimistic update pattern
+-------------------------------------------------------------
+const mutation = useMutation({
+  mutationFn: addUser,
+  onMutate: async (newUser) => {
+    await queryClient.cancelQueries(["users"]);
+
+    const previousUsers =
+      queryClient.getQueryData(["users"]);
+
+    queryClient.setQueryData(["users"], old => [
+      ...old,
+      { id: Date.now(), ...newUser }
+    ]);
+
+    return { previousUsers };
+  },
+  onError: (_err, _newUser, context) => {
+    queryClient.setQueryData(
+      ["users"],
+      context.previousUsers
+    );
+  },
+  onSettled: () => {
+    queryClient.invalidateQueries(["users"]);
+  }
+});
+
+
+🧠 Flow:
+Update UI immediately
+Roll back if error
+Sync with server later
+
+📌 Interview line:
+---------------------------------------------------------------------------------
+“Optimistic updates improve UX by updating UI before the server confirms.”
+
+////////////////////////////////////////////////////////////////////////////////////////
