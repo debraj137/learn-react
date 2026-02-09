@@ -139,3 +139,26 @@ It: fetches data, caches it, refetches automatically, handles loading & error, a
 🧠 Mental model:
 --------------------------------------------------------------------------
 “React Query is useEffect + cache + retry + refetch done right”
+
+/////////////////////////////////////////////////////////////////////////////////////////
+🧩 LESSON 4: Query Keys & Caching (CRITICAL)
+--------------------------------------------------------
+Query Key = cache identity
+queryKey: ["users"]
+If React Query sees the same key again:
+it uses cached data
+avoids refetching
+
+🧪 Practice 2: Param-based cache
+useQuery({
+  queryKey: ["user", userId],
+  queryFn: () => fetchUser(userId)
+});
+
+
+🧠 Different userId → different cache entry.
+📌 Interview line:
+--------------------------------------------------------------------
+“React Query caches data based on query keys.”
+
+/////////////////////////////////////////////////////////////////////////////////////
