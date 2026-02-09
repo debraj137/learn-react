@@ -14,6 +14,7 @@ import { UserContext } from './UserContext'
 import { useDispatch, useSelector } from 'react-redux'
 import { increment } from './counterSlice'
 import { useStore } from './useStore'
+import { useQuery } from '@tanstack/react-query'
 // import { useStore } from 'zustand'
 
 // function Header(){
@@ -102,12 +103,19 @@ import { useStore } from './useStore'
 //   return <p>Count in Child: {count}</p>
 // }
 
-function Profile(){
-  return (
-    <UserContext.Consumer>
-      {(user)=><p>User: {user}</p>}
-    </UserContext.Consumer>
-  )
+// function Profile(){
+//   return (
+//     <UserContext.Consumer>
+//       {(user)=><p>User: {user}</p>}
+//     </UserContext.Consumer>
+//   )
+// }
+
+const fetchUsers = async ()=>{
+  const res = await fetch("https://jsonplaceholder.typicode.com/users");
+  if(!res.ok) throw new Error("Failed");
+  console.log('res: ',res);
+  return res.json();
 }
 
 function App() {
@@ -268,7 +276,13 @@ function App() {
   // const user = "Debraj";
   // const count = useSelector((state)=>state.counter.value);
   // const dispatch = useDispatch();
-  const {count, increment}  = useStore();
+  // const {count, increment}  = useStore();
+  const {data, isLoading, error} = useQuery({
+    queryKey: ['users'],
+    queryFn: fetchUsers
+  });
+  if(isLoading) return <p>Loading...</p>
+  if(error) return <p>Error Occurred</p>
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -402,7 +416,12 @@ function App() {
       {/* <button onClick={()=>dispatch(increment())}>
         Count: {count}
       </button> */}
-      <button onClick={increment}>Count: {count}</button>
+      {/* <button onClick={increment}>Count: {count}</button> */}
+      <ul>
+        {data.map(user=>(
+          <li key={user.id}>{user.name}</li>
+        ))}
+      </ul>
     </>
 
   )
