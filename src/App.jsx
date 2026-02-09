@@ -14,7 +14,7 @@ import { UserContext } from './UserContext'
 import { useDispatch, useSelector } from 'react-redux'
 import { increment } from './counterSlice'
 import { useStore } from './useStore'
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 // import { useStore } from 'zustand'
 
 // function Header(){
@@ -111,10 +111,22 @@ import { useQuery } from '@tanstack/react-query'
 //   )
 // }
 
-const fetchUsers = async ()=>{
-  const res = await fetch("https://jsonplaceholder.typicode.com/users");
-  if(!res.ok) throw new Error("Failed");
-  console.log('res: ',res);
+// const fetchUsers = async ()=>{
+//   const res = await fetch("https://jsonplaceholder.typicode.com/users");
+//   if(!res.ok) throw new Error("Failed");
+//   console.log('res: ',res);
+//   return res.json();
+// }
+
+const addUser = async (user)=>{
+  const res = await fetch(
+    "https://jsonplaceholder.typicode.com/users",
+    {
+      method:'POST',
+      body: JSON.stringify(user),
+      headers: {'Content-Type':'application/json'}
+    }
+  );
   return res.json();
 }
 
@@ -277,12 +289,20 @@ function App() {
   // const count = useSelector((state)=>state.counter.value);
   // const dispatch = useDispatch();
   // const {count, increment}  = useStore();
-  const {data, isLoading, error} = useQuery({
-    queryKey: ['users'],
-    queryFn: fetchUsers
-  });
-  if(isLoading) return <p>Loading...</p>
-  if(error) return <p>Error Occurred</p>
+  // const {data, isLoading, error} = useQuery({
+  //   queryKey: ['users'],
+  //   queryFn: fetchUsers
+  // });
+  // if(isLoading) return <p>Loading...</p>
+  // if(error) return <p>Error Occurred</p>
+
+  const queryClient = useQueryClient();
+  const mutation = useMutation({
+    mutationFn:addUser,
+    onSuccess:()=>{
+      queryClient.invalidateQueries(["users"]);
+    }
+  })
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -417,11 +437,12 @@ function App() {
         Count: {count}
       </button> */}
       {/* <button onClick={increment}>Count: {count}</button> */}
-      <ul>
+      {/* <ul>
         {data.map(user=>(
           <li key={user.id}>{user.name}</li>
         ))}
-      </ul>
+      </ul> */}
+      <button onClick={()=>mutation.mutate({name:"New User"})}>Add User</button>
     </>
 
   )
