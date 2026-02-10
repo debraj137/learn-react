@@ -6,7 +6,7 @@ import FunctionalComponentExample from './FunctionalComponentExample'
 import JSXRules from './JSXRules'
 import Props from './Props'
 import ModuleCssExample from './modulecss/ModuleCssExample'
-import { useForm } from 'react-hook-form'
+import { set, useForm } from 'react-hook-form'
 import { useFetch } from './useFetch'
 import { Link, Route, Routes, useLocation, useParams, useRoutes } from 'react-router-dom'
 import Layout from './Layout'
@@ -139,6 +139,11 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 //   console.log("Child rendered");
 //   return <p>Child</p>
 // })
+
+const Child = memo(function Child({onClick}){
+  console.log("Child rendered");
+  return <button onClick={onClick}>Child Button</button>
+})
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -317,17 +322,21 @@ function App() {
   // console.log("App rendered");
   // const [count, setCount] = useState(0);
   // console.log("App rendered");
-  const [count, setCount] = useState(0);
-  const [dark, setDark] = useState(false);
+  // const [count, setCount] = useState(0);
+  // const [dark, setDark] = useState(false);
 
-  const expensiveValue = useMemo(()=>{
-    console.log('Calculating...');
-    let total = 0;
-    for(let i=0; i<1000000; i++){
-      total + i;
-    }
-    return total + count;
-  },[count])
+  // const expensiveValue = useMemo(()=>{
+  //   console.log('Calculating...');
+  //   let total = 0;
+  //   for(let i=0; i<1000000; i++){
+  //     total + i;
+  //   }
+  //   return total + count;
+  // },[count])
+  const [count, setCount] = useState(0);
+  const handleClick = useCallback(()=>{
+    console.log('clicked')
+  },[])
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -472,10 +481,14 @@ function App() {
       <Child/> */}
       {/* <button onClick={()=>setCount(count + 1)}>+</button>
       <Child/> */}
-      <div style={{background: dark ? '#333' : '#fff'}}>
+      {/* <div style={{background: dark ? '#333' : '#fff'}}>
         <p>{expensiveValue}</p>
         <button onClick={()=>setCount(count+1)}>Count</button>
         <button onClick={()=>setDark(!dark)}>Toggle Theme</button>
+      </div> */}
+      <div>
+        <button onClick={()=>setCount(count+1)}>+</button>
+        <Child onClick={handleClick}/>
       </div>
     </>
 
