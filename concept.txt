@@ -284,3 +284,18 @@ Optimize only when you see a problem
 📌 Interview line:
 ------------------------------------------------------------------------------
 “I optimize based on profiling, not assumptions.”
+
+/////////////////////////////////////////////////////////////////////////////////////////
+🧩 LESSON 2: Try/Catch Patterns in UI
+-----------------------------------------------------
+What try/catch CAN do
+---------------------------------
+✔ Catch async errors
+✔ Catch API failures
+
+What try/catch CANNOT do
+--------------------------------------
+❌ Catch render errors
+❌ Catch JSX errors
+
+///////////////////////////////////////////////////////////////////////////////////////////////

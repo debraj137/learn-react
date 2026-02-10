@@ -146,9 +146,9 @@ import ErrorBoundary from './ErrorBoundary'
 //   return <button onClick={onClick}>Child Button</button>
 // })
 // const Dashboard = lazy(()=>import("./Dashboard"));
-function BuggyComponent(){
-  throw new Error("Boom!")
-}
+// function BuggyComponent(){
+//   throw new Error("Boom!")
+// }
 function App() {
   // const [count, setCount] = useState(0);
   // const [name, setName] = useState('');
@@ -343,6 +343,19 @@ function App() {
   // },[])
 
   // const items = Array.from({ length: 1000 }, (_, i) => i);
+  const [error, setError] = useState(null);
+  useEffect(()=>{
+    const fetchData = async ()=>{
+      try {
+        throw new Error("API failed");
+      } catch (error) {
+        setError(error.message)
+      }
+    }
+    fetchData();
+  },[]);
+
+  if(error) return <p>Error: {error}</p>
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -504,9 +517,9 @@ function App() {
       {/* <Suspense fallback={<p>Loading...</p>}>
         <Dashboard/>
       </Suspense> */}
-      <ErrorBoundary>
+      {/* <ErrorBoundary>
         <BuggyComponent/>
-      </ErrorBoundary>
+      </ErrorBoundary> */}
     </>
 
   )
