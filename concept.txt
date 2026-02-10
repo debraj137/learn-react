@@ -299,3 +299,13 @@ What try/catch CANNOT do
 ❌ Catch JSX errors
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
+🧩 LESSON 4: Empty States (VERY IMPORTANT)
+-------------------------------------------------------
+What is an empty state?
+When data exists, but it’s empty
+Examples: no bookings, empty cart, no search results
+
+❌ Blank screen is BAD
+✅ Clear message is GOOD
+
+/////////////////////////////////////////////////////////////////////////////////////////////////

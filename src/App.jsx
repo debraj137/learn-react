@@ -344,20 +344,23 @@ function App() {
   // },[])
 
   // const items = Array.from({ length: 1000 }, (_, i) => i);
-  const [error, setError] = useState(null);
-  useEffect(()=>{
-    const fetchData = async ()=>{
-      try {
-        throw new Error("API failed");
-      } catch (error) {
-        setError(error.message)
-      }
-    }
-    fetchData();
-  },[]);
+  // const [error, setError] = useState(null);
+  // useEffect(()=>{
+  //   const fetchData = async ()=>{
+  //     try {
+  //       throw new Error("API failed");
+  //     } catch (error) {
+  //       setError(error.message)
+  //     }
+  //   }
+  //   fetchData();
+  // },[]);
 
   // if(error) return <p>Error: {error}</p>
-  if(error) return <GlobalError message={error}/>
+  // if(error) return <GlobalError message={error}/>
+
+  const items = [];
+  if(items.length == 0) return <p>No item found</p>
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -522,6 +525,11 @@ function App() {
       {/* <ErrorBoundary>
         <BuggyComponent/>
       </ErrorBoundary> */}
+      <ul>
+        {items.map(item=>(
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
     </>
 
   )
