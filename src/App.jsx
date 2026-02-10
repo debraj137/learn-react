@@ -135,10 +135,10 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 //   return <p>Child</p>
 // }
 
-const Child = memo(function Child(){
-  console.log("Child rendered");
-  return <p>Child</p>
-})
+// const Child = memo(function Child(){
+//   console.log("Child rendered");
+//   return <p>Child</p>
+// })
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -315,8 +315,19 @@ function App() {
   // })
   // const [count, setCount] = useState(0);
   // console.log("App rendered");
+  // const [count, setCount] = useState(0);
+  // console.log("App rendered");
   const [count, setCount] = useState(0);
-  console.log("App rendered");
+  const [dark, setDark] = useState(false);
+
+  const expensiveValue = useMemo(()=>{
+    console.log('Calculating...');
+    let total = 0;
+    for(let i=0; i<1000000; i++){
+      total + i;
+    }
+    return total + count;
+  },[count])
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -459,8 +470,13 @@ function App() {
       {/* <button onClick={()=>mutation.mutate({name:"New User"})}>Add User</button> */}
       {/* <button onClick={()=>setCount(count+1)}>+</button>
       <Child/> */}
-      <button onClick={()=>setCount(count + 1)}>+</button>
-      <Child/>
+      {/* <button onClick={()=>setCount(count + 1)}>+</button>
+      <Child/> */}
+      <div style={{background: dark ? '#333' : '#fff'}}>
+        <p>{expensiveValue}</p>
+        <button onClick={()=>setCount(count+1)}>Count</button>
+        <button onClick={()=>setDark(!dark)}>Toggle Theme</button>
+      </div>
     </>
 
   )
