@@ -130,6 +130,11 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 //   return res.json();
 // }
 
+function Child(){
+  console.log("Child rendered");
+  return <p>Child</p>
+}
+
 function App() {
   // const [count, setCount] = useState(0);
   // const [name, setName] = useState('');
@@ -303,6 +308,8 @@ function App() {
   //     queryClient.invalidateQueries(["users"]);
   //   }
   // })
+  const [count, setCount] = useState(0);
+  console.log("App rendered");
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -443,6 +450,8 @@ function App() {
         ))}
       </ul> */}
       {/* <button onClick={()=>mutation.mutate({name:"New User"})}>Add User</button> */}
+      <button onClick={()=>setCount(count+1)}>+</button>
+      <Child/>
     </>
 
   )
