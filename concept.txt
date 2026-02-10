@@ -259,3 +259,12 @@ cacheTime → when cache is garbage-collected
 🎯 INTERVIEW-READY SUMMARY (SAVE THIS)
 -------------------------------------------------------------
 “I treat server state separately from client state. I use React Query to fetch, cache, refetch, and mutate server data. It handles loading and error states automatically, supports background refetching, and enables optimistic updates for better UX.”
+
+//////////////////////////////////////////////////////////////////////////////////////
+🧩 LESSON 2: Memoization Strategies (BIG IDEA)
+Memoization = “remember previous result”
+React memoization tools:
+------------------------------------------
+React.memo → memoize components
+useMemo → memoize values
+useCallback → memoize functions
