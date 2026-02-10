@@ -16,6 +16,7 @@ import { increment } from './counterSlice'
 import { useStore } from './useStore'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import ErrorBoundary from './ErrorBoundary'
+import GlobalError from './GlobalError'
 // import { useStore } from 'zustand'
 
 // function Header(){
@@ -355,7 +356,8 @@ function App() {
     fetchData();
   },[]);
 
-  if(error) return <p>Error: {error}</p>
+  // if(error) return <p>Error: {error}</p>
+  if(error) return <GlobalError message={error}/>
   return (
     <>
       {/* <h1>Hello react</h1>
