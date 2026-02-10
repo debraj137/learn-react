@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { increment } from './counterSlice'
 import { useStore } from './useStore'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import ErrorBoundary from './ErrorBoundary'
 // import { useStore } from 'zustand'
 
 // function Header(){
@@ -144,7 +145,10 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 //   console.log("Child rendered");
 //   return <button onClick={onClick}>Child Button</button>
 // })
-const Dashboard = lazy(()=>import("./Dashboard"));
+// const Dashboard = lazy(()=>import("./Dashboard"));
+function BuggyComponent(){
+  throw new Error("Boom!")
+}
 function App() {
   // const [count, setCount] = useState(0);
   // const [name, setName] = useState('');
@@ -497,9 +501,12 @@ function App() {
           <li key={item}>{item}</li>
         ))}
       </ul> */}
-      <Suspense fallback={<p>Loading...</p>}>
+      {/* <Suspense fallback={<p>Loading...</p>}>
         <Dashboard/>
-      </Suspense>
+      </Suspense> */}
+      <ErrorBoundary>
+        <BuggyComponent/>
+      </ErrorBoundary>
     </>
 
   )
