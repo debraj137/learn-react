@@ -359,8 +359,10 @@ function App() {
   // if(error) return <p>Error: {error}</p>
   // if(error) return <GlobalError message={error}/>
 
-  const items = [];
-  if(items.length == 0) return <p>No item found</p>
+  // const items = [];
+  // if(items.length == 0) return <p>No item found</p>
+  const loading = true
+  if(loading) return <p>Loading</p>
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -525,11 +527,11 @@ function App() {
       {/* <ErrorBoundary>
         <BuggyComponent/>
       </ErrorBoundary> */}
-      <ul>
+      {/* <ul>
         {items.map(item=>(
           <li key={item}>{item}</li>
         ))}
-      </ul>
+      </ul> */}
     </>
 
   )

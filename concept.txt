@@ -309,3 +309,30 @@ Examples: no bookings, empty cart, no search results
 ✅ Clear message is GOOD
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
+🧩 LESSON 5: Fallback UI Patterns
+Fallback UI = temporary UI while something happens
+Used for: loading, errors, lazy loading, permissions
+
+🧪 Practice 5: Loading fallback
+-------------------------------------------------------------
+📄 File: src/App.jsx
+function App() {
+  const isLoading = true;
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  return <p>Data ready</p>;
+}
+
+export default App;
+
+🧪 Practice 6: Suspense fallback
+------------------------------------------------------------
+<Suspense fallback={<p>Loading page...</p>}>
+  <Dashboard />
+</Suspense>
+
+
+🧠 Fallbacks improve perceived performance.
