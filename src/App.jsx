@@ -1,4 +1,4 @@
-import { createContext, memo, useCallback, useContext, useEffect, useMemo, useReducer, useRef, useState } from 'react'
+import { createContext, lazy, memo, Suspense, useCallback, useContext, useEffect, useMemo, useReducer, useRef, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -144,7 +144,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 //   console.log("Child rendered");
 //   return <button onClick={onClick}>Child Button</button>
 // })
-
+const Dashboard = lazy(()=>import("./Dashboard"));
 function App() {
   // const [count, setCount] = useState(0);
   // const [name, setName] = useState('');
@@ -497,6 +497,9 @@ function App() {
           <li key={item}>{item}</li>
         ))}
       </ul> */}
+      <Suspense fallback={<p>Loading...</p>}>
+        <Dashboard/>
+      </Suspense>
     </>
 
   )
