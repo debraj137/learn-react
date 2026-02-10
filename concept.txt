@@ -268,3 +268,19 @@ React memoization tools:
 React.memo → memoize components
 useMemo → memoize values
 useCallback → memoize functions
+
+////////////////////////////////////////////////////////////////////////////////////////////
+🧩 LESSON 6: Avoiding Over-Optimization (VERY IMPORTANT)
+------------------------------------------------------------------
+❌ Common mistakes
+Wrapping everything in useMemo
+Using useCallback everywhere
+Optimizing before measuring
+
+🧠 Rule:
+------------------------------------------------------------
+Optimize only when you see a problem
+
+📌 Interview line:
+------------------------------------------------------------------------------
+“I optimize based on profiling, not assumptions.”

@@ -140,10 +140,10 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 //   return <p>Child</p>
 // })
 
-const Child = memo(function Child({ onClick }) {
-  console.log("Child rendered");
-  return <button onClick={onClick}>Child Button</button>
-})
+// const Child = memo(function Child({ onClick }) {
+//   console.log("Child rendered");
+//   return <button onClick={onClick}>Child Button</button>
+// })
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -338,7 +338,7 @@ function App() {
   //   console.log('clicked')
   // },[])
 
-  const items = Array.from({ length: 1000 }, (_, i) => i);
+  // const items = Array.from({ length: 1000 }, (_, i) => i);
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -492,11 +492,11 @@ function App() {
         <button onClick={()=>setCount(count+1)}>+</button>
         <Child onClick={handleClick}/>
       </div> */}
-      <ul>
+      {/* <ul>
         {items.map((item) => (
           <li key={item}>{item}</li>
         ))}
-      </ul>
+      </ul> */}
     </>
 
   )
