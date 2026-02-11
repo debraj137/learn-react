@@ -363,10 +363,16 @@ function App() {
   // if(items.length == 0) return <p>No item found</p>
   // const loading = true
   // if(loading) return <p>Loading</p>
-  const handleKeyDown = (e)=>{
-    console.log('c;oc')
-    if(e.key === 'Enter') alert("Enter pressed")
-  }
+  // const handleKeyDown = (e)=>{
+  //   console.log('c;oc')
+  //   if(e.key === 'Enter') alert("Enter pressed")
+  // }
+
+  const inputRef = useRef();
+
+  useEffect(()=>{
+    inputRef.current.focus();
+  },[])
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -548,7 +554,8 @@ function App() {
       {/* <div role="alert">
       Something went wrong
     </div> */}
-    <button onKeyDown={handleKeyDown}>Press Enter</button>
+    {/* <button onKeyDown={handleKeyDown}>Press Enter</button> */}
+    <input type="text" ref={inputRef} placeholder='Focus on load'/>
     </>
 
   )
