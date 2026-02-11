@@ -361,8 +361,8 @@ function App() {
 
   // const items = [];
   // if(items.length == 0) return <p>No item found</p>
-  const loading = true
-  if(loading) return <p>Loading</p>
+  // const loading = true
+  // if(loading) return <p>Loading</p>
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -532,6 +532,15 @@ function App() {
           <li key={item}>{item}</li>
         ))}
       </ul> */}
+      <header>
+        <h1>My App</h1>
+      </header>
+      <main>
+        <p>Welcome to the app</p>
+      </main>
+      <footer>
+        <p>@2026</p>
+      </footer>
     </>
 
   )
