@@ -363,6 +363,10 @@ function App() {
   // if(items.length == 0) return <p>No item found</p>
   // const loading = true
   // if(loading) return <p>Loading</p>
+  const handleKeyDown = (e)=>{
+    console.log('c;oc')
+    if(e.key === 'Enter') alert("Enter pressed")
+  }
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -541,9 +545,10 @@ function App() {
       <footer>
         <p>@2026</p>
       </footer> */}
-      <div role="alert">
+      {/* <div role="alert">
       Something went wrong
-    </div>
+    </div> */}
+    <button onKeyDown={handleKeyDown}>Press Enter</button>
     </>
 
   )
