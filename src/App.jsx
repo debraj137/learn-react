@@ -368,11 +368,11 @@ function App() {
   //   if(e.key === 'Enter') alert("Enter pressed")
   // }
 
-  const inputRef = useRef();
+  // const inputRef = useRef();
 
-  useEffect(()=>{
-    inputRef.current.focus();
-  },[])
+  // useEffect(()=>{
+  //   inputRef.current.focus();
+  // },[])
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -555,7 +555,13 @@ function App() {
       Something went wrong
     </div> */}
     {/* <button onKeyDown={handleKeyDown}>Press Enter</button> */}
-    <input type="text" ref={inputRef} placeholder='Focus on load'/>
+    {/* <input type="text" ref={inputRef} placeholder='Focus on load'/> */}
+     <form>
+      <label htmlFor="email">Email</label>
+      <input id="email" type="email" />
+
+      <button type="submit">Submit</button>
+    </form>
     </>
 
   )
