@@ -352,3 +352,46 @@ Catch unexpected crashes
 “I handle errors at multiple levels: try/catch for async logic, Error Boundaries for UI crashes, global error components for consistency, and explicit empty and fallback states to ensure good UX.”
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
+🧩 LESSON 6: Accessibility Testing Mindset (INTERVIEW GOLD)
+
+You don’t need to be an expert tester — just follow this mindset.
+
+✅ Manual checks you SHOULD do
+
+Can I navigate with Tab only?
+
+Is focus visible?
+
+Are buttons actually <button>?
+
+Are forms properly labeled?
+
+Do error messages make sense?
+
+🧪 Keyboard test (try this now)
+
+Open your app
+
+Put mouse away
+
+Use only Tab, Enter, Shift+Tab
+
+If you get stuck → accessibility issue.
+
+🧪 Tools (just awareness)
+
+Chrome DevTools → Lighthouse
+
+Screen readers (NVDA, VoiceOver)
+
+ESLint a11y rules (later)
+
+📌 Interview line:
+
+“I test accessibility by keyboard navigation and semantic HTML before relying on tools.”
+
+🎯 INTERVIEW-READY SUMMARY (SAVE THIS)
+
+“I build accessible React apps using semantic HTML, proper labels, keyboard-friendly components, focus management with useRef, ARIA only when necessary, and I test accessibility using keyboard navigation.”
+
+/////////////////////////////////////////////////////////////////////////////////////////////
