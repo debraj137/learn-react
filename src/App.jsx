@@ -532,7 +532,7 @@ function App() {
           <li key={item}>{item}</li>
         ))}
       </ul> */}
-      <header>
+      {/* <header>
         <h1>My App</h1>
       </header>
       <main>
@@ -540,7 +540,10 @@ function App() {
       </main>
       <footer>
         <p>@2026</p>
-      </footer>
+      </footer> */}
+      <div role="alert">
+      Something went wrong
+    </div>
     </>
 
   )
