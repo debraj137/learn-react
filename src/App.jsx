@@ -150,6 +150,10 @@ import GlobalError from './GlobalError'
 // function BuggyComponent(){
 //   throw new Error("Boom!")
 // }
+
+function Child({name}){
+  return <p>Hello {name}</p>
+}
 function App() {
   // const [count, setCount] = useState(0);
   // const [name, setName] = useState('');
@@ -373,6 +377,7 @@ function App() {
   // useEffect(()=>{
   //   inputRef.current.focus();
   // },[])
+  const [count, setCount] = useState(0);
   return (
     <>
       {/* <h1>Hello react</h1>
@@ -556,12 +561,15 @@ function App() {
     </div> */}
     {/* <button onKeyDown={handleKeyDown}>Press Enter</button> */}
     {/* <input type="text" ref={inputRef} placeholder='Focus on load'/> */}
-     <form>
+     {/* <form>
       <label htmlFor="email">Email</label>
       <input id="email" type="email" />
 
       <button type="submit">Submit</button>
-    </form>
+    </form> */}
+    <p>Count {count}</p>
+    <button onClick={()=>setCount(count+1)}>+</button>
+    <Child name="debraj"/>
     </>
 
   )
