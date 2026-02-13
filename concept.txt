@@ -421,3 +421,14 @@ Implementation details, React internals, CSS styling specifics, Library behavior
 🎯 INTERVIEW-READY SUMMARY
 ----------------------------------------
 “I follow user-centric testing principles. I use React Testing Library to test UI behavior, mock API calls to isolate components, and focus on testing user interactions rather than implementation details.”
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+🧠 Debugging Workflow (REAL WORLD)
+------------------------------------------------------------
+When something breaks: Check console errors, Inspect component in DevTools, Check props/state, Add console logs, Use Profiler if performance issue, Verify dependency arrays
+
+🎯 INTERVIEW-READY SUMMARY
+-------------------------------------------------
+“I use React DevTools to inspect component trees, the Profiler to measure re-renders, console debugging to track state changes, and I watch for common issues like infinite effects, stale closures, and unnecessary renders.”
+
+////////////////////////////////////////////////////////////////////////////////////////////////
