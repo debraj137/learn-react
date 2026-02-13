@@ -395,3 +395,17 @@ ESLint a11y rules (later)
 “I build accessible React apps using semantic HTML, proper labels, keyboard-friendly components, focus management with useRef, ARIA only when necessary, and I test accessibility using keyboard navigation.”
 
 /////////////////////////////////////////////////////////////////////////////////////////////
+🧠 LESSON 1: Testing Philosophy (VERY IMPORTANT)
+------------------------------------------------------------
+Before writing code, understand this:
+❌ Bad testing mindset
+------------------------------------
+Testing implementation details
+Testing internal state
+Testing every small function blindly
+
+✅ Good testing mindset
+--------------------------------------------
+“Test what the user sees and does.”
+React Testing Library principle: The more your tests resemble how users use your software, the more confidence they give you.
+/////////////////////////////////////////////////////////////////////////////////////////////////////
