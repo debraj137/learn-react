@@ -409,3 +409,15 @@ Testing every small function blindly
 “Test what the user sees and does.”
 React Testing Library principle: The more your tests resemble how users use your software, the more confidence they give you.
 /////////////////////////////////////////////////////////////////////////////////////////////////////
+🧩 LESSON 7: What to Test vs What NOT to Test
+✅ What to test
+----------------------------------
+User interactions, Conditional rendering, Form validation, API success/error states, Edge cases
+
+❌ What NOT to test
+---------------------------------------------
+Implementation details, React internals, CSS styling specifics, Library behavior (React Router internals)
+
+🎯 INTERVIEW-READY SUMMARY
+----------------------------------------
+“I follow user-centric testing principles. I use React Testing Library to test UI behavior, mock API calls to isolate components, and focus on testing user interactions rather than implementation details.”
