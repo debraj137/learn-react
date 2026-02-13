@@ -152,6 +152,7 @@ import GlobalError from './GlobalError'
 // }
 
 function Child({name}){
+  console.log('child rendered')
   return <p>Hello {name}</p>
 }
 function App() {
@@ -378,6 +379,14 @@ function App() {
   //   inputRef.current.focus();
   // },[])
   const [count, setCount] = useState(0);
+  console.log('App rendered')
+//   useEffect(() => {
+//   setCount(count + 1);
+// }, [count]);
+ //fix
+  useEffect(() => {
+  setCount(count + 1);
+}, []);
   return (
     <>
       {/* <h1>Hello react</h1>
